@@ -3,6 +3,7 @@ package lotto.model.vo;
 public class PurchaseAmount {
 
     public static final int LOTTO_PRICE = 1000;
+
     private final Integer amount;
 
     public PurchaseAmount(Integer amount) {
