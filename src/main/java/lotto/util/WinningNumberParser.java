@@ -1,6 +1,6 @@
 package lotto.util;
 
-public class InputParser {
+public class WinningNumberParser {
 
     public static final String DELIMITER = ",";
     public static final String CONTINUOUS_DELIMITER_REGEX = ",{2,}";
