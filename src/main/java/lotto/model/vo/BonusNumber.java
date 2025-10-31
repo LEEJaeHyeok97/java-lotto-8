@@ -1,10 +1,10 @@
 package lotto.model.vo;
 
-public class LottoNumber {
+public class BonusNumber {
 
     private final Integer number;
 
-    public LottoNumber(Integer number) {
+    public BonusNumber(Integer number) {
         this.number = number;
     }
 }

@@ -1,13 +1,13 @@
 package lotto.model;
 
-import lotto.model.vo.LottoNumber;
+import lotto.model.vo.BonusNumber;
 
 public class WinningResult {
 
     private final WinningNumbers winningNumbers;
-    private final LottoNumber bonusNumber;
+    private final BonusNumber bonusNumber;
 
-    public WinningResult(WinningNumbers winningNumbers, LottoNumber bonusNumber) {
+    public WinningResult(WinningNumbers winningNumbers, BonusNumber bonusNumber) {
         this.winningNumbers = winningNumbers;
         this.bonusNumber = bonusNumber;
     }
