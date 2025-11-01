@@ -4,21 +4,21 @@ import java.util.List;
 
 public class WinningRankCalculator {
 
-    private final List<WinningRank> values;
+    private final List<WinningRank> ranks;
 
-    public WinningRankCalculator(List<WinningRank> values) {
-        this.values = values;
+    public WinningRankCalculator(List<WinningRank> ranks) {
+        this.ranks = ranks;
     }
 
     public int calculateSum() {
-        return values.stream()
+        return ranks.stream()
                 .mapToInt(WinningRank::getPrize)
                 .sum();
     }
 
-    public int countByRank(WinningRank rank) {
-        return (int) values.stream()
-                .filter(value -> value == rank)
+    public int countByRank(WinningRank winningRank) {
+        return (int) ranks.stream()
+                .filter(rank -> rank == winningRank)
                 .count();
     }
 }
