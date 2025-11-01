@@ -9,6 +9,7 @@ import lotto.model.vo.Lotto;
 public class Lottos implements Iterable<Lotto> {
 
     public static final int ISSUE_UNIT = 1;
+
     private final List<Lotto> values;
 
     public Lottos(List<Lotto> values) {
