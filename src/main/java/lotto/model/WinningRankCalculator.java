@@ -16,33 +16,9 @@ public class WinningRankCalculator {
                 .sum();
     }
 
-    public int countFifthPrize() {
+    public int countByRank(WinningRank rank) {
         return (int) values.stream()
-                .filter(value -> value == WinningRank.FIFTH_PRIZE)
-                .count();
-    }
-
-    public int countFourthPrize() {
-        return (int) values.stream()
-                .filter(value -> value == WinningRank.FOURTH_PRIZE)
-                .count();
-    }
-
-    public int countThirdPrize() {
-        return (int) values.stream()
-                .filter(value -> value == WinningRank.THIRD_PRIZE)
-                .count();
-    }
-
-    public int countSecondPrize() {
-        return (int) values.stream()
-                .filter(value -> value == WinningRank.SECOND_PRIZE)
-                .count();
-    }
-
-    public int countFirstPrize() {
-        return (int) values.stream()
-                .filter(value -> value == WinningRank.FIRST_PRIZE)
+                .filter(value -> value == rank)
                 .count();
     }
 }
