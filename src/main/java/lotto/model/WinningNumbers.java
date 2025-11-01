@@ -16,6 +16,10 @@ public class WinningNumbers {
         this.values = values;
     }
 
+    public static WinningNumbers of(List<WinningNumber> values) {
+        return new WinningNumbers(values);
+    }
+
     private void validateWinningNumberCount(List<WinningNumber> values) {
         if (values.size() != WINNING_NUMBER_COUNT) {
             throw new IllegalArgumentException("[ERROR] 당첨 번호는 6개여야 합니다.");

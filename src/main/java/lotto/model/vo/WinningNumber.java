@@ -31,7 +31,7 @@ public class WinningNumber {
         return Objects.hash(number);
     }
 
-    private static void validateLottoNumberInRange(Integer number) {
+    private void validateLottoNumberInRange(Integer number) {
         if (number < LOTTO_NUMBER_MIN || number > LOTTO_NUMBER_MAX) {
             throw new IllegalArgumentException("[ERROR] 당첨 번호는 1부터 45 사이의 숫자여야 합니다.");
         }

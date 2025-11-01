@@ -11,4 +11,8 @@ public class WinningResult {
         this.winningNumbers = winningNumbers;
         this.bonusNumber = bonusNumber;
     }
+
+    public static WinningResult of(WinningNumbers winningNumbers, BonusNumber bonusNumber) {
+        return new WinningResult(winningNumbers, bonusNumber);
+    }
 }
