@@ -1,5 +1,7 @@
 package lotto.model.vo;
 
+import java.util.Objects;
+
 public class WinningNumber {
 
     public static final int LOTTO_NUMBER_MIN = 1;
@@ -10,6 +12,23 @@ public class WinningNumber {
     public WinningNumber(Integer number) {
         validateLottoNumberInRange(number);
         this.number = number;
+    }
+
+    @Override
+    public boolean equals(Object object) {
+        if (this == object) {
+            return true;
+        }
+        if (object == null || getClass() != object.getClass()) {
+            return false;
+        }
+        WinningNumber that = (WinningNumber) object;
+        return Objects.equals(number, that.number);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(number);
     }
 
     private static void validateLottoNumberInRange(Integer number) {
