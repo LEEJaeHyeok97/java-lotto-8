@@ -1,10 +1,12 @@
 package lotto.model;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Iterator;
 import java.util.List;
 import lotto.model.vo.Lotto;
 
-public class Lottos {
+public class Lottos implements Iterable<Lotto> {
 
     public static final int ISSUE_UNIT = 1;
     private final List<Lotto> values;
@@ -27,6 +29,11 @@ public class Lottos {
         }
 
         return Lottos.of(issuedLottos);
+    }
+
+    @Override
+    public Iterator<Lotto> iterator() {
+        return Collections.unmodifiableList(values).iterator();
     }
 
     private static Lotto issueOneLotto(LottoNumbersGenerator lottoNumbersGenerator) {
