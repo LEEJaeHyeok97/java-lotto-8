@@ -7,14 +7,22 @@ import lotto.model.vo.WinningNumber;
 
 public class WinningNumbers {
 
+    public static final int WINNING_NUMBER_COUNT = 6;
     private final List<WinningNumber> values;
 
     public WinningNumbers(List<WinningNumber> values) {
         validateIsDuplicatedWinningNumber(values);
+        validateWinningNumberCount(values);
         this.values = values;
     }
 
-    private static void validateIsDuplicatedWinningNumber(List<WinningNumber> values) {
+    private void validateWinningNumberCount(List<WinningNumber> values) {
+        if (values.size() != WINNING_NUMBER_COUNT) {
+            throw new IllegalArgumentException("[ERROR] 당첨 번호는 6개여야 합니다.");
+        }
+    }
+
+    private void validateIsDuplicatedWinningNumber(List<WinningNumber> values) {
         Set<WinningNumber> nonDuplicatedWinningNumbers = new HashSet<>(values);
 
         if (nonDuplicatedWinningNumbers.size() != values.size()) {
