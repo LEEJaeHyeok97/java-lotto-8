@@ -10,6 +10,12 @@ public class WinningRankCalculator {
         this.values = values;
     }
 
+    public int calculateSum() {
+        return values.stream()
+                .mapToInt(WinningRank::getPrize)
+                .sum();
+    }
+
     public int countFifthPrize() {
         return (int) values.stream()
                 .filter(value -> value == WinningRank.FIFTH_PRIZE)
