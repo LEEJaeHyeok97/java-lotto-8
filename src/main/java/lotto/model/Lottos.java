@@ -6,6 +6,7 @@ import lotto.model.vo.Lotto;
 
 public class Lottos {
 
+    public static final int ISSUE_UNIT = 1;
     private final List<Lotto> values;
 
     public Lottos(List<Lotto> values) {
@@ -16,22 +17,23 @@ public class Lottos {
         return new Lottos(values);
     }
 
-    public Lottos generateByQuantity(int quantity, LottoNumbersGenerator lottoNumbersGenerator) {
-        List<Lotto> values = new ArrayList<>();
+    public static Lottos generateByQuantity(int quantity, LottoNumbersGenerator lottoNumbersGenerator) {
+        List<Lotto> issuedLottos = new ArrayList<>();
 
-        while (quantity > 0) {
-            values.add(getIssuedLotto(lottoNumbersGenerator));
-            quantity -= 1;
+        int remaining = quantity;
+        while (remaining > 0) {
+            issuedLottos.add(issueOneLotto(lottoNumbersGenerator));
+            remaining -= ISSUE_UNIT;
         }
 
-        return Lottos.of(values);
+        return Lottos.of(issuedLottos);
     }
 
-    private Lotto getIssuedLotto(LottoNumbersGenerator lottoNumbersGenerator) {
-        return Lotto.issue(getGenerateLottoNumbers(lottoNumbersGenerator));
+    private static Lotto issueOneLotto(LottoNumbersGenerator lottoNumbersGenerator) {
+        return Lotto.issue(generateLottoNumbers(lottoNumbersGenerator));
     }
 
-    private List<Integer> getGenerateLottoNumbers(LottoNumbersGenerator lottoNumbersGenerator) {
+    private static List<Integer> generateLottoNumbers(LottoNumbersGenerator lottoNumbersGenerator) {
         return lottoNumbersGenerator.generateLottoNumbers();
     }
 }
