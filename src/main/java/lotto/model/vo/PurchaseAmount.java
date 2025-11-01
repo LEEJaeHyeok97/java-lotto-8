@@ -11,6 +11,10 @@ public class PurchaseAmount {
         this.amount = amount;
     }
 
+    public Integer getAmount() {
+        return amount;
+    }
+
     private void validate(Integer parsedAmount) {
         validateAmountUnit(parsedAmount);
         validateMinimumAmount(parsedAmount);
