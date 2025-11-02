@@ -1,6 +1,7 @@
 package lotto.model.vo;
 
-import org.junit.jupiter.api.Assertions;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -10,10 +11,10 @@ class PurchaseAmountTest {
     @Test
     public void PurchaseAmountUnderLottoPrice() {
         //given
-        int amount = 900;
+        int amount = 999;
 
         //when //then
-        Assertions.assertThrows(IllegalArgumentException.class, () -> PurchaseAmount.of(amount));
+        assertThrows(IllegalArgumentException.class, () -> PurchaseAmount.of(amount));
     }
 
 
