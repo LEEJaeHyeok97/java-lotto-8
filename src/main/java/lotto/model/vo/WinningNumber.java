@@ -14,6 +14,10 @@ public class WinningNumber {
         this.number = number;
     }
 
+    public static WinningNumber of(Integer number) {
+        return new WinningNumber(number);
+    }
+
     public Integer getNumber() {
         return number;
     }
