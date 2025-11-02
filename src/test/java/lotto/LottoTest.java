@@ -36,4 +36,17 @@ class LottoTest {
         assertThat(lotto.getNumbers())
                 .containsExactly(1, 3, 8, 15, 42, 43);
     }
+
+    @DisplayName("6개의 번호 리스트를 입력하면 로또를 발급한다.")
+    @Test
+    void issueTest() {
+        //given
+        List<Integer> numbers = List.of(1, 2, 3, 4, 5, 6);
+
+        //when
+        Lotto lotto = Lotto.issue(numbers);
+
+        //then
+        assertThat(lotto.getNumbers()).containsExactly(1, 2, 3, 4, 5, 6);
+    }
 }
