@@ -1,5 +1,6 @@
 package lotto.controller;
 
+import lotto.model.vo.PurchaseAmount;
 import lotto.view.InputView;
 import lotto.view.OutputView;
 
