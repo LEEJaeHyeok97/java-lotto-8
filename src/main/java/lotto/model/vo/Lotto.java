@@ -18,6 +18,10 @@ public class Lotto {
         return new Lotto(numbers);
     }
 
+    public List<Integer> getNumbers() {
+        return numbers;
+    }
+
     public static Lotto issue(List<Integer> numbers) {
         sortNumbers(numbers);
 
