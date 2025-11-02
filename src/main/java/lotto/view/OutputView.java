@@ -12,21 +12,24 @@ public class OutputView {
 
     public void printPurchaseCount(int count) {
         System.out.printf(LINE_SEPARATOR + PURCHASE_COUNT_MESSAGE, count);
-        System.out.println();
+        printWhiteSpace();
     }
 
     public void printIssuedLottos(Lottos lottos) {
         for (Lotto lotto : lottos) {
-            System.out.println(lotto.getNumbers() + LINE_SEPARATOR);
+            System.out.println(lotto.getNumbers());
         }
+
+        printWhiteSpace();
     }
 
     public void printWinningStatistics(LottoResult result) {
-        System.out.println("당첨 통계");
+        System.out.println(LINE_SEPARATOR + "당첨 통계");
         System.out.println("---");
 
         for (WinningRank rank : WinningRank.values()) {
             printRankResult(rank, result.countByRank(rank));
+            printWhiteSpace();
         }
 
         System.out.printf("총 수익률은 %.1f%%입니다.", result.calculateProfitRate());
@@ -46,5 +49,9 @@ public class OutputView {
         }
 
         return bonusText;
+    }
+
+    private void printWhiteSpace() {
+        System.out.println();
     }
 }
