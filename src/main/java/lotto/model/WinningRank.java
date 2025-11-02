@@ -32,4 +32,12 @@ public enum WinningRank {
     public int getPrize() {
         return prize;
     }
+
+    public int getMatchCount() {
+        return matchCount;
+    }
+
+    public boolean isBonusMatch() {
+        return bonusMatch;
+    }
 }

@@ -15,6 +15,10 @@ public class LottoResult {
         this.purchaseAmount = purchaseAmount;
     }
 
+    public int countByRank(WinningRank rank) {
+        return calculator.countByRank(rank);
+    }
+
     public double calculateProfitRate() {
         int totalPrize = calculator.calculateSum();
         return roundToFirstDecimal(calculateProfitPercentage((double) totalPrize));
