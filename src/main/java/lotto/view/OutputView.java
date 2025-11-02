@@ -8,18 +8,17 @@ import lotto.model.vo.Lotto;
 public class OutputView {
 
     public static final String PURCHASE_COUNT_MESSAGE = "%d개를 구매했습니다.";
+    public static final String LINE_SEPARATOR = System.lineSeparator();
 
     public void printPurchaseCount(int count) {
-        System.out.printf(PURCHASE_COUNT_MESSAGE, count);
+        System.out.printf(LINE_SEPARATOR + PURCHASE_COUNT_MESSAGE, count);
         System.out.println();
     }
 
     public void printIssuedLottos(Lottos lottos) {
         for (Lotto lotto : lottos) {
-            System.out.println(lotto.getNumbers());
+            System.out.println(lotto.getNumbers() + LINE_SEPARATOR);
         }
-
-        System.out.println();
     }
 
     public void printWinningStatistics(LottoResult result) {
