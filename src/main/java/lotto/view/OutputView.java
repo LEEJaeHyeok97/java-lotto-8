@@ -31,8 +31,7 @@ public class OutputView {
     }
 
     public void printWinningStatistics(LottoResult result) {
-        System.out.println(LINE_SEPARATOR + WINNING_STATISTICS_HEADER);
-        System.out.println(SECTION_DIVIDER);
+        printWinningStasticsHeader();
 
         for (WinningRank rank : WinningRank.displayValues()) {
             printRankResult(rank, result.countByRank(rank));
@@ -44,6 +43,11 @@ public class OutputView {
 
     public void printError(String message) {
         System.out.println(message);
+    }
+
+    private static void printWinningStasticsHeader() {
+        System.out.println(LINE_SEPARATOR + WINNING_STATISTICS_HEADER);
+        System.out.println(SECTION_DIVIDER);
     }
 
     private void printRankResult(WinningRank rank, int count) {
