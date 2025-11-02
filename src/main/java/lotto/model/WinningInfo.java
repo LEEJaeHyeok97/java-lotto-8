@@ -21,7 +21,7 @@ public class WinningInfo {
 
     public void validateDuplicatedBonusNumber(WinningNumbers winningNumbers, BonusNumber bonusNumber) {
         for (WinningNumber winningNumber : winningNumbers) {
-            if (winningNumber.getNumber().equals( bonusNumber.getNumber())) {
+            if (isEquals(bonusNumber.getNumber(), winningNumber)) {
                 throw new IllegalArgumentException("[ERROR] 보너스 숫자는 당첨 숫자와 중복될 수 없습니다.");
             }
         }
@@ -43,11 +43,15 @@ public class WinningInfo {
 
     private boolean isInWinningNumber(Integer number) {
         for (WinningNumber winningNumber : winningNumbers) {
-            if (winningNumber.getNumber().equals(number)) {
+            if (isEquals(number, winningNumber)) {
                 return true;
             }
         }
 
         return false;
+    }
+
+    private static boolean isEquals(Integer number, WinningNumber winningNumber) {
+        return winningNumber.getNumber().equals(number);
     }
 }
