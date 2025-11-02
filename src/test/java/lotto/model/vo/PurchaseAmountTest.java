@@ -17,5 +17,13 @@ class PurchaseAmountTest {
         assertThrows(IllegalArgumentException.class, () -> PurchaseAmount.of(amount));
     }
 
+    @DisplayName("구매할 금액이 1000원 단위가 아닌 금액이 입력되면 예외를 발생한다.")
+    @Test
+    public void PurchaseAmountIsNotLottoPriceUnit() {
+        //given
+        int amount = 1500;
 
+        //when //then
+        assertThrows(IllegalArgumentException.class, () -> PurchaseAmount.of(amount));
+    }
 }
