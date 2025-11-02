@@ -50,7 +50,12 @@ public class LottoController {
     }
 
     private WinningNumbers inputWinningNumbers() {
-        return WinningNumbersFactory.from(parseWinningNumbers());
+        try {
+            return WinningNumbersFactory.from(parseWinningNumbers());
+        } catch (IllegalArgumentException e) {
+            outputView.printError(e.getMessage());
+            return inputWinningNumbers();
+        }
     }
 
     private String[] parseWinningNumbers() {
