@@ -4,14 +4,15 @@ import lotto.model.LottoResult;
 import lotto.model.Lottos;
 import lotto.model.WinningRank;
 import lotto.model.vo.Lotto;
+import lotto.model.vo.PurchaseAmount;
 
 public class OutputView {
 
     public static final String PURCHASE_COUNT_MESSAGE = "%d개를 구매했습니다.";
     public static final String LINE_SEPARATOR = System.lineSeparator();
 
-    public void printPurchaseCount(int count) {
-        System.out.printf(LINE_SEPARATOR + PURCHASE_COUNT_MESSAGE, count);
+    public void printPurchaseCount(PurchaseAmount purchaseAmount) {
+        System.out.printf(LINE_SEPARATOR + PURCHASE_COUNT_MESSAGE, purchaseAmount.calculateQuantity());
         printWhiteSpace();
     }
 

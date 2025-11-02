@@ -27,7 +27,7 @@ public class LottoController {
 
     public void run() {
         PurchaseAmount purchaseAmount = inputPurchaseAmount();
-        outputView.printPurchaseCount(purchaseAmount.calculateQuantity());
+        outputView.printPurchaseCount(purchaseAmount);
 
         Lottos lottos = Lottos.generateByQuantity(purchaseAmount.calculateQuantity(),
                 new LottoNumbersRandomGenerator());
