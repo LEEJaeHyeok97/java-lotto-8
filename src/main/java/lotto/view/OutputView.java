@@ -35,6 +35,10 @@ public class OutputView {
         System.out.printf("총 수익률은 %.1f%%입니다.", result.calculateProfitRate());
     }
 
+    public void printError(String message) {
+        System.out.println(message);
+    }
+
     private void printRankResult(WinningRank rank, int count) {
         System.out.printf("%d개 일치%s (%,d원) - %d개", rank.getMatchCount(),
                 isBonusMatch(rank),
