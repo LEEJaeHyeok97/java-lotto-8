@@ -27,7 +27,7 @@ public class OutputView {
         System.out.println(LINE_SEPARATOR + "당첨 통계");
         System.out.println("---");
 
-        for (WinningRank rank : WinningRank.values()) {
+        for (WinningRank rank : WinningRank.displayValues()) {
             printRankResult(rank, result.countByRank(rank));
             printWhiteSpace();
         }

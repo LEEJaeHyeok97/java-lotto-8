@@ -1,6 +1,7 @@
 package lotto.model;
 
 import java.util.Arrays;
+import java.util.List;
 
 public enum WinningRank {
 
@@ -27,6 +28,16 @@ public enum WinningRank {
                 .filter(rank -> rank.bonusMatch == bonusMatch)
                 .findFirst()
                 .orElse(NONE);
+    }
+
+    public static List<WinningRank> displayValues() {
+        return List.of(
+                FIFTH_PRIZE,
+                FOURTH_PRIZE,
+                THIRD_PRIZE,
+                SECOND_PRIZE,
+                FIRST_PRIZE
+        );
     }
 
     public int getPrize() {
