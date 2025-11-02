@@ -1,5 +1,6 @@
 package lotto.controller;
 
+import lotto.model.LottoMachine;
 import lotto.model.LottoNumbersRandomGenerator;
 import lotto.model.LottoResult;
 import lotto.model.Lottos;
@@ -53,8 +54,15 @@ public class LottoController {
     }
 
     private static Lottos generateLottos(PurchaseAmount purchaseAmount) {
-        return Lottos.generateByQuantity(purchaseAmount.calculateQuantity(),
-                new LottoNumbersRandomGenerator());
+        return createLottoMachine().generateByQuantity(getCalculateQuantity(purchaseAmount));
+    }
+
+    private static LottoMachine createLottoMachine() {
+        return LottoMachine.of(new LottoNumbersRandomGenerator());
+    }
+
+    private static int getCalculateQuantity(PurchaseAmount purchaseAmount) {
+        return purchaseAmount.calculateQuantity();
     }
 
     private PurchaseAmount inputPurchaseAmount() {
