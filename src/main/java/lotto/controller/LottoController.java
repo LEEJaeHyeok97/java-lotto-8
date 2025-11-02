@@ -26,16 +26,35 @@ public class LottoController {
     }
 
     public void run() {
+        playLottoMachine(createInputAmount());
+    }
+
+    private void playLottoMachine(PurchaseAmount purchaseAmount) {
+        outputView.printWinningStatistics(createLottoResult(purchaseAmount));
+    }
+
+    private LottoResult createLottoResult(PurchaseAmount purchaseAmount) {
+        return LottoResultFactory.create(createWinningInfo(),
+                createLottos(purchaseAmount),
+                purchaseAmount);
+    }
+
+    private Lottos createLottos(PurchaseAmount purchaseAmount) {
+        Lottos lottos = generateLottos(purchaseAmount);
+        outputView.printIssuedLottos(lottos);
+        return lottos;
+    }
+
+    private PurchaseAmount createInputAmount() {
         PurchaseAmount purchaseAmount = inputPurchaseAmount();
         outputView.printPurchaseCount(purchaseAmount);
 
-        Lottos lottos = Lottos.generateByQuantity(purchaseAmount.calculateQuantity(),
+        return purchaseAmount;
+    }
+
+    private static Lottos generateLottos(PurchaseAmount purchaseAmount) {
+        return Lottos.generateByQuantity(purchaseAmount.calculateQuantity(),
                 new LottoNumbersRandomGenerator());
-        outputView.printIssuedLottos(lottos);
-
-        LottoResult lottoResult = LottoResultFactory.create(createWinningInfo(), lottos, purchaseAmount);
-
-        outputView.printWinningStatistics(lottoResult);
     }
 
     private PurchaseAmount inputPurchaseAmount() {
