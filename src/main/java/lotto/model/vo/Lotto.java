@@ -1,5 +1,6 @@
 package lotto.model.vo;
 
+import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 
@@ -23,9 +24,7 @@ public class Lotto {
     }
 
     public static Lotto issue(List<Integer> numbers) {
-        sortNumbers(numbers);
-
-        return Lotto.of(numbers);
+        return Lotto.of(sortNumbers(numbers));
     }
 
     private void validate(List<Integer> numbers) {
@@ -34,7 +33,10 @@ public class Lotto {
         }
     }
 
-    private static void sortNumbers(List<Integer> numbers) {
-        numbers.sort(Comparator.naturalOrder());
+    private static List<Integer> sortNumbers(List<Integer> numbers) {
+        List<Integer> copiedNumbers = new ArrayList<>(numbers);
+        copiedNumbers.sort(Comparator.naturalOrder());
+
+        return copiedNumbers;
     }
 }
