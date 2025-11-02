@@ -15,6 +15,10 @@ public class PurchaseAmount {
         return amount;
     }
 
+    public int calculateQuantity() {
+        return amount / LOTTO_PRICE;
+    }
+
     private void validate(Integer parsedAmount) {
         validateAmountUnit(parsedAmount);
         validateMinimumAmount(parsedAmount);

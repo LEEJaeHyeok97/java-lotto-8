@@ -14,6 +14,10 @@ public class WinningNumber {
         this.number = number;
     }
 
+    public Integer getNumber() {
+        return number;
+    }
+
     @Override
     public boolean equals(Object object) {
         if (this == object) {

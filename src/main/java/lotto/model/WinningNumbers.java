@@ -1,11 +1,13 @@
 package lotto.model;
 
+import java.util.Collections;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 import lotto.model.vo.WinningNumber;
 
-public class WinningNumbers {
+public class WinningNumbers implements Iterable<WinningNumber> {
 
     public static final int WINNING_NUMBER_COUNT = 6;
     private final List<WinningNumber> values;
@@ -18,6 +20,11 @@ public class WinningNumbers {
 
     public static WinningNumbers of(List<WinningNumber> values) {
         return new WinningNumbers(values);
+    }
+
+    @Override
+    public Iterator<WinningNumber> iterator() {
+        return Collections.unmodifiableList(values).iterator();
     }
 
     private void validateWinningNumberCount(List<WinningNumber> values) {
