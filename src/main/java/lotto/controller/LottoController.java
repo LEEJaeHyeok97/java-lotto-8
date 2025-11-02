@@ -45,6 +45,11 @@ public class LottoController {
     }
 
     private PurchaseAmount inputPurchaseAmount() {
-        return PurchaseAmountFactory.from(inputView.inputPurchaseAmount());
+        try {
+            return PurchaseAmountFactory.from(inputView.inputPurchaseAmount());
+        } catch (IllegalArgumentException e) {
+            outputView.printError(e.getMessage());
+            return inputPurchaseAmount();
+        }
     }
 }
