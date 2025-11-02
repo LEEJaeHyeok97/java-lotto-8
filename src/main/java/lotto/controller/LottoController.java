@@ -33,11 +33,7 @@ public class LottoController {
                 new LottoNumbersRandomGenerator());
         outputView.printIssuedLottos(lottos);
 
-        String[] parsedNumbers = WinningNumberParser.winningNumberParse(inputView.inputWinningNumbers());
-        WinningNumbers winningNumbers = WinningNumbersFactory.from(parsedNumbers);
-        BonusNumber bonusNumber = BonusNumberFactory.from(inputView.inputBonusNumber());
-
-        WinningInfo winningInfo = WinningInfo.of(winningNumbers, bonusNumber);
+        WinningInfo winningInfo = WinningInfo.of(inputWinningNumbers(), inputBonusNumber());
 
         LottoResult lottoResult = LottoResultFactory.create(winningInfo, lottos, purchaseAmount);
 
@@ -50,6 +46,28 @@ public class LottoController {
         } catch (IllegalArgumentException e) {
             outputView.printError(e.getMessage());
             return inputPurchaseAmount();
+        }
+    }
+
+    private WinningNumbers inputWinningNumbers() {
+        return WinningNumbersFactory.from(parseWinningNumbers());
+    }
+
+    private String[] parseWinningNumbers() {
+        try {
+            return WinningNumberParser.winningNumberParse(inputView.inputWinningNumbers());
+        } catch (IllegalArgumentException e) {
+            outputView.printError(e.getMessage());
+            return parseWinningNumbers();
+        }
+    }
+
+    private BonusNumber inputBonusNumber() {
+        try {
+            return BonusNumberFactory.from(inputView.inputBonusNumber());
+        } catch (IllegalArgumentException e) {
+            outputView.printError(e.getMessage());
+            return inputBonusNumber();
         }
     }
 }
