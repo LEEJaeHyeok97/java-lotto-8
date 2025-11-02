@@ -10,7 +10,7 @@ class PurchaseAmountTest {
 
     @DisplayName("구매할 금액이 로또 최소 단위보다 작은 금액이 입력되면 예외를 발생한다.")
     @Test
-    public void PurchaseAmountUnderLottoPrice() {
+    void PurchaseAmountUnderLottoPrice() {
         //given
         int amount = 999;
 
@@ -20,7 +20,7 @@ class PurchaseAmountTest {
 
     @DisplayName("구매할 금액이 1000원 단위가 아닌 금액이 입력되면 예외를 발생한다.")
     @Test
-    public void PurchaseAmountIsNotLottoPriceUnit() {
+    void PurchaseAmountIsNotLottoPriceUnit() {
         //given
         int amount = 1500;
 
@@ -30,7 +30,7 @@ class PurchaseAmountTest {
 
     @DisplayName("구매 금액이 로또 단위의 배수일 때 올바른 개수를 반환해야 한다.")
     @Test
-    public void returnsCorrectQuantityBasedOnPurchaseAmount() {
+    void returnsCorrectQuantityBasedOnPurchaseAmount() {
         //given
         int amount = 8000;
 
