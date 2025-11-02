@@ -10,6 +10,8 @@ class WinningRankCalculatorTest {
 
     public static final List<WinningRank> RANKS = List.of(WinningRank.FIRST_PRIZE, WinningRank.FIFTH_PRIZE,
             WinningRank.THIRD_PRIZE);
+    public static final int TOTAL_PRIZE = WinningRank.FIRST_PRIZE.getPrize() + WinningRank.FIFTH_PRIZE.getPrize()
+            + WinningRank.THIRD_PRIZE.getPrize();
 
     @DisplayName("모든 당첨 등수의 상금을 합산한다.")
     @Test
@@ -17,8 +19,7 @@ class WinningRankCalculatorTest {
         //given
         List<WinningRank> winningRanks = RANKS;
         WinningRankCalculator calculator = WinningRankCalculator.of(winningRanks);
-        int totalPrize = WinningRank.FIRST_PRIZE.getPrize() + WinningRank.FIFTH_PRIZE.getPrize()
-                + WinningRank.THIRD_PRIZE.getPrize();
+        int totalPrize = TOTAL_PRIZE;
 
         //when
         int calculatedSum = calculator.calculateSum();
