@@ -18,6 +18,10 @@ public class WinningInfo {
         return new WinningInfo(winningNumbers, bonusNumber);
     }
 
+    public WinningRank judgeRank(Lotto lotto) {
+        return WinningRank.findByMatchCountAndBonusMatch(countMatch(lotto), isBonusMatched(lotto));
+    }
+
     public int countMatch(Lotto lotto) {
         return (int) lotto.getNumbers().stream()
                 .filter(this::isInWinningNumber)

@@ -15,6 +15,10 @@ public class LottoResult {
         this.purchaseAmount = purchaseAmount;
     }
 
+    public static LottoResult of(WinningRankCalculator calculator, PurchaseAmount purchaseAmount) {
+        return new LottoResult(calculator, purchaseAmount);
+    }
+
     public int countByRank(WinningRank rank) {
         return calculator.countByRank(rank);
     }

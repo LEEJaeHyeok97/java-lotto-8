@@ -10,6 +10,10 @@ public class WinningRankCalculator {
         this.ranks = ranks;
     }
 
+    public static WinningRankCalculator of(List<WinningRank> ranks) {
+        return new WinningRankCalculator(ranks);
+    }
+
     public int calculateSum() {
         return ranks.stream()
                 .mapToInt(WinningRank::getPrize)
