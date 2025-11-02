@@ -34,8 +34,8 @@ public class LottoController {
     }
 
     private LottoResult createLottoResult(PurchaseAmount purchaseAmount) {
-        return LottoResultFactory.create(createWinningInfo(),
-                createLottos(purchaseAmount),
+        return LottoResultFactory.create(createLottos(purchaseAmount),
+                createWinningInfo(),
                 purchaseAmount);
     }
 

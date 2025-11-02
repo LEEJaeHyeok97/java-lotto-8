@@ -15,7 +15,7 @@ public class LottoResultFactory {
     public LottoResultFactory() {
     }
 
-    public static LottoResult create(WinningInfo winningInfo, Lottos lottos, PurchaseAmount purchaseAmount) {
+    public static LottoResult create(Lottos lottos, WinningInfo winningInfo, PurchaseAmount purchaseAmount) {
         List<WinningRank> ranks = calculateRanks(winningInfo, lottos);
         WinningRankCalculator calculator = WinningRankCalculator.of(ranks);
         return LottoResult.of(calculator, purchaseAmount);
