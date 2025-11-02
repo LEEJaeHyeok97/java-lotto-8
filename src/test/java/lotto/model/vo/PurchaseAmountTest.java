@@ -1,5 +1,6 @@
 package lotto.model.vo;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import org.junit.jupiter.api.DisplayName;
@@ -25,5 +26,19 @@ class PurchaseAmountTest {
 
         //when //then
         assertThrows(IllegalArgumentException.class, () -> PurchaseAmount.of(amount));
+    }
+
+    @DisplayName("구매 금액이 로또 단위의 배수일 때 올바른 개수를 반환해야 한다.")
+    @Test
+    public void returnsCorrectQuantityBasedOnPurchaseAmount() {
+        //given
+        int amount = 8000;
+
+        //when
+        PurchaseAmount purchaseAmount = PurchaseAmount.of(amount);
+        int quantity = purchaseAmount.calculateQuantity();
+
+        //then
+        assertThat(quantity).isEqualTo(8);
     }
 }
